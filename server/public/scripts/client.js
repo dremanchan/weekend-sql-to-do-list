@@ -33,7 +33,7 @@ function postTask() {
 }
 
 // GET REQUEST and render function to refresh page to go in .then
-function refresh() {
+function getTasks() {
     $.ajax({
         type: 'GET',
         url: '/tasks'
@@ -45,4 +45,8 @@ function refresh() {
     });
 }
 
+function renderTasks() {
+    console.log('in renderTasks', renderTasks);
+    
 
+}
