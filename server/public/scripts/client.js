@@ -13,7 +13,8 @@ function submitTask() {
     };
     todo.task = $('#newTaskInput').val();
     console.log('New task listed', todo);
-
+    postTask(todo);
+    $('#newTaskInput').val();
 }
 
 function postTask() {
