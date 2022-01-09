@@ -3,11 +3,12 @@ $(document).ready(onReady);
 function onReady() {
     console.log('jQ sourced');
     $(document).on('click', '.newTaskButton', submitTask);
+    getTasks();
 }
 
 // Takes input from form field and posts to server. Clears input
 function submitTask() {
-    console.log('submit button clicked', submitTask);
+    console.log('submit button clicked');
     let todo = {
         task: "",
         status: ""
@@ -15,18 +16,18 @@ function submitTask() {
     todo.task = $('#newTaskInput').val();
     console.log('New task listed', todo);
     postTask(todo);
-    $('#newTaskInput').val();
+    $('#newTaskInput').val('');
 }
 
 // Posts data to server
-function postTask() {
+function postTask(addedTask) {
     $.ajax({
         type: 'POST',
-        url: 'tasks',
+        url: '/tasks',
         data: addedTask
     }).then(function (response) {
         console.log('POST successful', response);
-        // GET/RENDER FUNCTION GOES HERE
+        getTasks();
     }).catch(function (err) {
         console.log('POST task failed', err);
     });
@@ -41,7 +42,7 @@ function getTasks() {
         console.log(res);
         // append function goes here
         for (let i =0; i< res.length; i++) {
-            if (res.status === false) {
+            if (res[i].status === false) {
                 $('#taskPlace').append(`
                 <tr data-id="${res[i].id}">
                     <td>${res[i].task}</td>
