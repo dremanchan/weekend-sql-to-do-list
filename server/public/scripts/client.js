@@ -3,6 +3,7 @@ $(document).ready(onReady);
 function onReady() {
     console.log('jQ sourced');
     $(document).on('click', '.newTaskButton', submitTask);
+    $(document).on('click', '.completeBtn', completeTask);
     getTasks();
 }
 
@@ -76,4 +77,23 @@ function getTasks() {
     }).catch(function (err) {
         console.log('GET FAILED', err);
     });
+}
+
+function completeTask() {
+    let taskId = $(this).parent().parent().data("id");
+    let completeStatus = $(this).text();
+    console.log('this is the task id', taskId);
+    console.log('this is the completion status', completeStatus);
+    $.ajax({
+        type: 'PUT',
+        url: `/tasks/status/${taskId}`,
+        data: {
+            status: completeStatus
+        }
+    }).then(function (res) {
+        console.log(res);
+        getTasks();
+    }).catch(function (err) {
+        console.log('PUT failed', err);
+    })
 }
