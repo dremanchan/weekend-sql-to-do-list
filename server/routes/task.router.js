@@ -63,5 +63,25 @@ router.put('/status/:id', (req, res) => {
 
 })
 // DELETE endpoint
+router.delete('/:id', (req, res) => {
+    console.log('id is', req.params.id);
+
+    let queryText = `
+        DELETE from "tasks"
+        WHERE id = $1;
+    `;
+    let queryParams = [
+        req.params.id
+    ];
+
+    pool.query(queryText, queryParams)
+        .then((result) => {
+            console.log('Delete task#', queryParams);
+            res.sendStatus(204);
+        }).catch((err) => {
+            console.log('DELETE failed', err);
+            res.sendStatus(500);
+        })
+});
 
 module.exports = router;
