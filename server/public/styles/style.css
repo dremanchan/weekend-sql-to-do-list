@@ -1,0 +1,14 @@
+body {
+    background-color: #e3c7c7 !important; 
+    font-family: monospace !important;
+    font-size: 17pt;
+    text-align: center;
+}
+
+input {
+    width: 350px;
+}
+
+h3 {
+    padding-top: 50px;
+}

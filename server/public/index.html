@@ -4,6 +4,7 @@
     <script src="./scripts/jQuery.js"></script>
     <script src="./scripts/client.js"></script>
     <link rel="stylesheet" href="./styles/style.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,15 +12,17 @@
 </head>
 <body>
     <h1>To-Do List</h1>
-    <h2>Add New Task</h2>
+    <h3>Add New Task</h3>
     <div class="newTaskDiv"></div>
-        <label for="newTaskInput">New Task</label>
-        <input type="text" id="newTaskInput"/>
+        <!-- <label for="newTaskInput">New Task</label> -->
+        <input type="text" 
+        id="newTaskInput"
+        placeholder="New Task"/>
         <button class="newTaskButton">Add New Task</button>
     </div>
-    <h2>Task List</h2>
+    <h3>Task List</h3>
     <div class="taskListDiv"></div>
-        <table>
+        <table class="table">
             <thead>
                 <tr>
                     <th>TO DO</th>
