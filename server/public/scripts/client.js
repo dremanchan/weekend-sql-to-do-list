@@ -50,12 +50,12 @@ function getTasks() {
                 <tr data-id="${res[i].id}">
                     <td>${res[i].task}</td>
                     <td>
-                        <button class="completeBtn">
+                        <button class="completeBtn btn btn-success">
                             Complete
                         </button>
                     </td>
                     <td>
-                        <button class="deleteBtn">
+                        <button class="deleteBtn btn btn-danger">
                             Delete
                         </button>
                     </td>
@@ -65,9 +65,9 @@ function getTasks() {
             $('#taskPlace').append(`
                 <tr class="completeTask" data-id="${res[i].id}">
                     <td>${res[i].task}</td>
-                    <td>Task Completed!</td>
+                    <td class="cTask">Task Completed!</td>
                     <td>
-                        <button class="deleteBtn">
+                        <button class="deleteBtn btn btn-danger">
                             Delete
                         </button>
                     </td>

@@ -1,11 +1,14 @@
-body{
-    background-color: #eed9d9;
-    font-family: 'Amatic SC', system-ui, -apple-system, sans-serif;
+body {
+    background-color: #e3c7c7 !important; 
+    font-family: monospace !important;
     font-size: 17pt;
+    text-align: center;
 }
 
-.completedTask{
-    color: rgb(211, 211, 211);
-    font-weight: bold;
-    background-color: rgb(245, 20, 20);
+input {
+    width: 350px;
+}
+
+h3 {
+    padding-top: 50px;
 }
