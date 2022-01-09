@@ -41,7 +41,27 @@ router.post('/', (req, res) => {
 });
 
 // PUT endpoint
-router.
+router.put('/status/:id', (req, res) => {
+    console.log('status is', req.body.status);
+    console.log('id is', req.params.id);
+    let queryText = `
+    UPDATE "tasks" 
+    SET "status" = 'True' 
+    WHERE "id" = $1`;
+    let queryParams = [
+        req.params.id
+    ];
+    
+    pool.query(queryText, queryParams)
+      .then(() => {
+          res.sendStatus(204);
+      })
+      .catch((err) => {
+          console.log('PUT failed', err);
+          res.sendStatus(500);
+      });
+
+})
 // DELETE endpoint
 
 module.exports = router;

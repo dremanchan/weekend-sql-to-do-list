@@ -3,6 +3,7 @@ $(document).ready(onReady);
 function onReady() {
     console.log('jQ sourced');
     $(document).on('click', '.newTaskButton', submitTask);
+    $(document).on('click', '.completeBtn', completeTask);
     getTasks();
 }
 
@@ -85,7 +86,7 @@ function completeTask() {
     console.log('this is the completion status', completeStatus);
     $.ajax({
         type: 'PUT',
-        url: `/tasks/status/$(taskId)`,
+        url: `/tasks/status/${taskId}`,
         data: {
             status: completeStatus
         }
