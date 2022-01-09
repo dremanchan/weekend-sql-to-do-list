@@ -4,6 +4,7 @@ function onReady() {
     console.log('jQ sourced');
     $(document).on('click', '.newTaskButton', submitTask);
     $(document).on('click', '.completeBtn', completeTask);
+    $(document).on('click', '.deleteBtn', deleteTask);
     getTasks();
 }
 
@@ -96,4 +97,25 @@ function completeTask() {
     }).catch(function (err) {
         console.log('PUT failed', err);
     })
+}
+
+function deleteTask() {
+    let taskId = $(this).parent().parent().data("id");
+    console.log("Delete Task with ID: ", taskId);
+    let r = confirm("Are you sure you want to delete this task?");
+    if (r == true) {
+        $.ajax({
+            type: 'DELETE',
+            url: `tasks/${taskId}`,
+        })
+            .then((res) => {
+                console.log('DELETE successful!');
+                getTasks();
+            })
+            .catch(function (error) {
+                alert("Error in DELETE function: ", error);
+            })
+    } else {
+        return;
+    }
 }
