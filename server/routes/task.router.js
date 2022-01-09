@@ -38,3 +38,9 @@ router.post('/', (req, res) => {
             res.sendStatus(500);
         })
 });
+
+// PUT endpoint
+
+// DELETE endpoint
+
+module.exports = router;
