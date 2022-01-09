@@ -37,5 +37,8 @@ function refresh() {
     }).then(function (res) {
         console.log(res);
         // append function goes here
-    })
+    }).catch(function (err) {
+        console.log('GET FAILED', err);
+    });
 }
+
