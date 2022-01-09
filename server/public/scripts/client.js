@@ -40,13 +40,38 @@ function getTasks() {
     }).then(function (res) {
         console.log(res);
         // append function goes here
+        for (let i =0; i< res.length; i++) {
+            if (res.status === false) {
+                $('#taskPlace').append(`
+                <tr data-id="${res[i].id}">
+                    <td>${res[i].task}</td>
+                    <td>
+                        <button class="completeBtn">
+                            Complete
+                        </button>
+                    </td>
+                    <td>
+                        <button class="deleteBtn">
+                            Delete
+                        </button>
+                    </td>
+                    </tr>
+            `);
+        } else if (res[i].status === true) {
+            $('#taskPlace').append(`
+                <tr class="completeTask" data-id="${res[i].id}">
+                    <td>${res[i].task}</td>
+                    <td>Task Completed!</td>
+                    <td>
+                        <button class="deleteBtn">
+                            Delete
+                        </button>
+                    </td>
+                    </tr>
+            `);
+        }
+    }
     }).catch(function (err) {
         console.log('GET FAILED', err);
     });
-}
-
-function renderTasks() {
-    console.log('in renderTasks', renderTasks);
-    
-
 }
