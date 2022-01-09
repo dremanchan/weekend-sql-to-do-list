@@ -11,4 +11,21 @@ function submitTask() {
         task: "",
         status: ""
     };
+    todo.task = $('#newTaskInput').val();
+    console.log('New task listed', todo);
+
+}
+
+function postTask() {
+    $.ajax({
+        type: 'POST',
+        url: 'tasks',
+        data: addedTask
+    }).then(function (response) {
+        console.log('POST successful', response);
+        // GET/RENDER FUNCTION GOES HERE
+    }).catch(function (err) {
+        console.log('POST task failed', err);
+
+    });
 }
