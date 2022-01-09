@@ -29,3 +29,13 @@ function postTask() {
 
     });
 }
+
+function refresh() {
+    $.ajax({
+        type: 'GET',
+        url: '/tasks'
+    }).then(function (res) {
+        console.log(res);
+        // append function goes here
+    })
+}
