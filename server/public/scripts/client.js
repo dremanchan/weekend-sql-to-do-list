@@ -41,6 +41,7 @@ function getTasks() {
     }).then(function (res) {
         console.log(res);
         // append function goes here
+        $('#taskPlace').empty();
         for (let i =0; i< res.length; i++) {
             if (res[i].status === false) {
                 $('#taskPlace').append(`
