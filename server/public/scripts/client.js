@@ -5,6 +5,7 @@ function onReady() {
     $(document).on('click', '.newTaskButton', submitTask);
 }
 
+// Takes input from form field and posts to server. Clears input
 function submitTask() {
     console.log('submit button clicked', submitTask);
     let todo = {
@@ -17,6 +18,7 @@ function submitTask() {
     $('#newTaskInput').val();
 }
 
+// Posts data to server
 function postTask() {
     $.ajax({
         type: 'POST',
@@ -27,10 +29,10 @@ function postTask() {
         // GET/RENDER FUNCTION GOES HERE
     }).catch(function (err) {
         console.log('POST task failed', err);
-
     });
 }
 
+// GET REQUEST and render function to refresh page to go in .then
 function refresh() {
     $.ajax({
         type: 'GET',
@@ -42,4 +44,5 @@ function refresh() {
         console.log('GET FAILED', err);
     });
 }
+
 
