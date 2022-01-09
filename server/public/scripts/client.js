@@ -92,7 +92,7 @@ function completeTask() {
             status: completeStatus
         }
     }).then(function (res) {
-        console.log(res);
+        console.log('Task Completed');
         getTasks();
     }).catch(function (err) {
         console.log('PUT failed', err);

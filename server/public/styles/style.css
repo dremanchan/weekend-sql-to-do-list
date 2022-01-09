@@ -1,0 +1,11 @@
+body{
+    background-color: #eed9d9;
+    font-family: 'Amatic SC', system-ui, -apple-system, sans-serif;
+    font-size: 17pt;
+}
+
+.completedTask{
+    color: rgb(211, 211, 211);
+    font-weight: bold;
+    background-color: rgb(245, 20, 20);
+}
